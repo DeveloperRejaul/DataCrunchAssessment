@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useLayoutEffect } from 'react';
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
   },
   close: {
-    backgroundColor: rcp(colors.button, 60),
+    backgroundColor: rcp(colors.dark, 60),
     borderRadius: 20,
     padding: 5,
     top: -10,

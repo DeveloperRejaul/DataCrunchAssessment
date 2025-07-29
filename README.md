@@ -6,6 +6,22 @@ An Expo React Native app with Expo Push Notifications, RTK Query, and smart feat
 
 ## ✨ Getting Started
 
+## Demo of screens
+<p>
+<img src="./screenshots/01.jpg" height="400"/>
+<img src="./screenshots/02.jpg" height="400"/>
+<img src="./screenshots/03.jpg" height="400"/>
+<img src="./screenshots/04.jpg" height="400"/>
+<img src="./screenshots/05.jpg" height="400"/>
+<img src="./screenshots/06.jpg" height="400"/>
+<img src="./screenshots/07.jpg" height="400"/>
+<img src="./screenshots/08.jpg" height="400"/>
+<img src="./screenshots/09.jpg" height="400"/>
+</p>
+
+## Video Demo
+**[Watch Demo on youtube](https://youtube.com/shorts/u_7Tu0TYHWY?feature=share)**
+
 ### 1. Install Dependencies
 
 ```bash
@@ -42,8 +58,6 @@ Navigate to the **Home screen** and tap the **three-dot menu (⋮)** in the top-
 A bottom sheet will appear with the following demo features:
 
 - **GFetcher Notifications** – test sending and receiving push notifications
-- **Hook Form** – validate form inputs
-- **Zustand** – explore global state management
 
 Just tap on any option to navigate and test!
 
@@ -69,7 +83,6 @@ Efficient caching, revalidation, and auto-fetching are supported via Redux Toolk
  ┃ ┣ 📄 +not-found.tsx
  ┃ ┣ 📄 index.tsx
  ┃ ┣ 📄 notifications.tsx
- ┃ ┗ 📄 zustand.tsx
  ┣ 📁 core/               # Core dependencies and base utilities
  ┃ ┣ 📁 assets/           # Static assets (icons, images, etc.)
  ┃ ┣ 📁 components/       # Reusable UI components
@@ -77,10 +90,10 @@ Efficient caching, revalidation, and auto-fetching are supported via Redux Toolk
  ┃ ┣ 📁 hook/             # Custom React hooks
  ┃ ┣ 📁 rtk/              # Redux Toolkit configuration and slices
  ┃ ┗ 📁 utils/            # Utility/helper functions
+ ┃ ┗ 📁 zustand/          # zustand configuration
  ┣ 📁 features/           # Feature-based modules (feature-first structure)
  ┃ ┣ 📁 home/             # Home screen feature
  ┃ ┣ 📁 notifications/    # Push notification feature logic
- ┃ ┗ 📁 zustand/          # Zustand state demo feature
 ```
 
 ## 🧹 Code Style
