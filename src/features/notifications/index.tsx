@@ -3,6 +3,8 @@ import { Text, View, Button, Platform } from 'react-native';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import Constants from 'expo-constants';
+import { router } from 'expo-router';
+import Header from '@/src/core/components/Header';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -17,16 +19,16 @@ export default function Notification() {
   const [notification, setNotification] = useState<Notifications.Notification | undefined>(undefined);
 
   useEffect(() => {
-    registerForPushNotificationsAsync().then(token => {});
+    registerForPushNotificationsAsync().then((token) => {});
 
     if (Platform.OS === 'android') {
-      Notifications.getNotificationChannelsAsync().then(value => {});
+      Notifications.getNotificationChannelsAsync().then((value) => {});
     }
-    const notificationListener = Notifications.addNotificationReceivedListener(notification => {
+    const notificationListener = Notifications.addNotificationReceivedListener((notification) => {
       setNotification(notification);
     });
 
-    const responseListener = Notifications.addNotificationResponseReceivedListener(response => {
+    const responseListener = Notifications.addNotificationResponseReceivedListener((response) => {
       console.log(response);
     });
 
@@ -37,23 +39,39 @@ export default function Notification() {
   }, []);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
-      }}>
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Title: {notification && notification.request.content.title} </Text>
-        <Text>Body: {notification && notification.request.content.body}</Text>
-        <Text>Data: {notification && JSON.stringify(notification.request.content.data)}</Text>
-      </View>
-      <Button
-        title="Press to schedule a notification"
-        onPress={async () => {
-          await schedulePushNotification();
-        }}
+    <View style={{ flex: 1 }}>
+      <Header
+        title="Notification"
+        onBack={() => router.back()}
       />
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'space-around',
+        }}
+      >
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <Text>
+            Title:
+            {notification && notification.request.content.title}
+          </Text>
+          <Text>
+            Body:
+            {notification && notification.request.content.body}
+          </Text>
+          <Text>
+            Data:
+            {notification && JSON.stringify(notification.request.content.data)}
+          </Text>
+        </View>
+        <Button
+          title="Press to schedule a notification"
+          onPress={async () => {
+            await schedulePushNotification();
+          }}
+        />
+      </View>
     </View>
   );
 }
@@ -99,8 +117,7 @@ async function registerForPushNotificationsAsync() {
     // https://docs.expo.dev/push-notifications/push-notifications-setup/#configure-projectid
     // EAS projectId is used here.
     try {
-      const projectId =
-        Constants?.expoConfig?.extra?.eas?.projectId ?? Constants?.easConfig?.projectId;
+      const projectId = Constants?.expoConfig?.extra?.eas?.projectId ?? Constants?.easConfig?.projectId;
       if (!projectId) {
         throw new Error('Project ID not found');
       }

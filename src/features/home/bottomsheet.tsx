@@ -10,13 +10,11 @@ export default function BottomSheet() {
     bottomSheet.hide();
     router.push(path);
   };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigate('/notifications')}>
         <Text style={styles.item}>Expo Push Notifications</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigate('/zustand')}>
-        <Text style={styles.item}>Zustand</Text>
       </TouchableOpacity>
     </View>
   );

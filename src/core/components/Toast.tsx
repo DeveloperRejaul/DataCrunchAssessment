@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, useWindowDimensions } from 'react-native';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withDelay, withSpring } from 'react-native-reanimated';
@@ -54,16 +53,16 @@ export default function AnimatedToast() {
 
   const getBg = (type:IShowData['type']) => {
     switch (type) {
-    case 'success':
-      return colors.success;
-    case 'error':
-      return colors.error;
-    case 'info':
-      return colors.error;
-    case 'warning':
-      return colors.error;
-    default:
-      return colors.success;
+      case 'success':
+        return colors.success;
+      case 'error':
+        return colors.error;
+      case 'info':
+        return colors.error;
+      case 'warning':
+        return colors.error;
+      default:
+        return colors.success;
     }
   };
 
@@ -85,8 +84,12 @@ export default function AnimatedToast() {
       >
         <Icon name="close" color={colors.dark} size={20} />
       </TouchableOpacity>
-      <Text style={{ ...styles.title, color: tostData?.titleColor || colors.dark }}> {tostData?.title || 'Action Message'}</Text>
-      <Text style={{ ...styles.message, color: tostData?.messageColor || colors.dark }}> {tostData.message || ''}</Text>
+      <Text style={{ ...styles.title, color: tostData?.titleColor || colors.dark }}>
+        {tostData?.title || 'Action Message'}
+      </Text>
+      <Text style={{ ...styles.message, color: tostData?.messageColor || colors.dark }}>
+        {tostData.message || ''}
+      </Text>
     </Animated.View>
   );
 }
@@ -117,6 +120,3 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 });
-  
-  
-  

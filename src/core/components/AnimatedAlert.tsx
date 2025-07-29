@@ -1,4 +1,3 @@
-
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useLayoutEffect } from 'react';
@@ -8,7 +7,6 @@ import Icon from '@expo/vector-icons//Ionicons';
 import Button from './Button';
 import { colors } from '../constance/colors';
 import { rcp } from '../utils/rcp';
-
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 interface IShowData {
@@ -74,7 +72,7 @@ export default function AnimatedAlert() {
 
   return (
     <Animated.View style={[styles.body, { height, width }, animatedContainerStyle]}>
-      <Animated.View style={[styles.container, { width:  (width * 0.8), height: 270 }, animatedStyle]}>
+      <Animated.View style={[styles.container, styles.shadowBox, { width: (width * 0.8), height: 270 }, animatedStyle]}>
         <View style={styles.alertHeader}>
           <Text style={styles.title}>Alert Action </Text>
           <TouchableOpacity
@@ -100,7 +98,7 @@ export default function AnimatedAlert() {
           <Button
             text="Ok"
             containerStyle={{ backgroundColor: colors.error }}
-            textStyle={{ color: colors.weight}}
+            textStyle={{ color: colors.weight }}
             onPress={() => hide('ok')}
           />
         </View>
@@ -122,7 +120,16 @@ const styles = StyleSheet.create({
     rowGap: 10,
     justifyContent: 'space-between',
   },
+  shadowBox: {
+    // iOS Shadow
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
 
+    // Android Shadow
+    elevation: 4,
+  },
   body: {
     position: 'absolute',
     justifyContent: 'center',
@@ -144,10 +151,8 @@ const styles = StyleSheet.create({
     right: -10,
   },
   btnContainer: { flexDirection: 'row', alignSelf: 'flex-end', columnGap: 20 },
-  alertHeader:{
+  alertHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
 });
-  
-  

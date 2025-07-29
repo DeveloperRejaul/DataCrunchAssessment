@@ -1,7 +1,6 @@
 /* eslint-disable global-require */
 /* eslint-disable react/style-prop-object */
 /* eslint-disable import/extensions */
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
@@ -13,15 +12,6 @@ import AnimatedAlert from '../core/components/AnimatedAlert';
 import { api } from '../core/rtk/api';
 
 export default function RootLayout() {
-  const [loaded] = useFonts({
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    SpaceMono: require('@/src/core/assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ApiProvider api={api}>

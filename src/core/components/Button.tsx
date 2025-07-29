@@ -1,4 +1,4 @@
-  
+/* eslint-disable react/jsx-props-no-spreading */
 import { Pressable, Text, ViewStyle, StyleSheet, TextStyle, PressableProps } from 'react-native';
 
 export interface IButton extends PressableProps {
